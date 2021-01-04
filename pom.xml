@@ -21,6 +21,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <name>job-service-client</name>
+    <description>Client API allowing access to job operations in CAF Workers</description>
+    <url>https://github.com/JobService/job-service-client</url>
+    
     <groupId>com.github.jobservice</groupId>
     <artifactId>job-service-client-aggregator</artifactId>
     <packaging>pom</packaging>
@@ -109,5 +113,10 @@
         </dependencies>
     </dependencyManagement>
 
+    <scm>
+        <connection>scm:git:https://github.com/JobService/job-service-client.git</connection>
+        <developerConnection>scm:git:https://github.com/JobService/job-service-client.git</developerConnection>
+        <url>https://github.com/JobService/job-service-client</url>
+    </scm>
 
 </project>
