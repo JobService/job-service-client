@@ -26,13 +26,21 @@
     <version>4.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>job-service-client</name>
-
+    <description>Client API allowing access to job operations in CAF Workers</description>
+    <url>https://github.com/JobService/job-service-client</url>
+    
     <parent>
         <groupId>com.github.cafapi</groupId>
         <artifactId>swagger-restapi-client-base</artifactId>
         <version>1.14.0-1</version>
         <relativePath/>
     </parent>
+
+    <scm>
+        <connection>scm:git:https://github.com/JobService/job-service-client.git/job-service-client</connection>
+        <developerConnection>scm:git:https://github.com/JobService/job-service-client.git/job-service-client</developerConnection>
+        <url>https://github.com/JobService/job-service-client</url>
+    </scm>
     
     <inceptionYear>2016</inceptionYear>
 
