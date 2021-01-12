@@ -23,7 +23,7 @@
 
     <groupId>com.github.jobservice</groupId>
     <artifactId>job-service-client</artifactId>
-    <version>4.0.0-SNAPSHOT</version>
+    <version>4.0.0-93</version>
     <packaging>jar</packaging>
     <name>job-service-client</name>
     <description>Client API allowing access to job operations in CAF Workers</description>
