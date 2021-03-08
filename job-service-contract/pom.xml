@@ -31,5 +31,5 @@
     <properties>
         <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
     </properties>
-    
+
 </project>
