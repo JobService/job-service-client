@@ -28,5 +28,8 @@
 
     <artifactId>job-service-contract</artifactId>
 
-
+    <properties>
+        <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+    </properties>
+    
 </project>
