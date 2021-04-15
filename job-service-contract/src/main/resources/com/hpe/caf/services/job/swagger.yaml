@@ -61,7 +61,7 @@ paths:
         in: header
         type: string
         description: |
-          An identifier that correlates events 
+          An identifier that correlates events
           across different services.
       - name: jobIdStartsWith
         in: query
@@ -128,7 +128,7 @@ paths:
         in: header
         type: string
         description: |
-          An identifier that correlates events 
+          An identifier that correlates events
           across different services.
       - $ref: '#/parameters/jobId'
     get:
@@ -188,7 +188,7 @@ paths:
         in: header
         type: string
         description: |
-          An identifier that correlates events 
+          An identifier that correlates events
           across different services.
       - $ref: '#/parameters/jobId'
     get:
@@ -215,7 +215,7 @@ paths:
         in: header
         type: string
         description: |
-          An identifier that correlates events 
+          An identifier that correlates events
           across different services.
       - $ref: '#/parameters/jobId'
     get:
@@ -246,7 +246,7 @@ paths:
         in: header
         type: string
         description: |
-          An identifier that correlates events 
+          An identifier that correlates events
           across different CAF services
       - $ref: '#/parameters/jobId'
     post:
@@ -269,7 +269,7 @@ paths:
         in: header
         type: string
         description: |
-          An identifier that correlates events 
+          An identifier that correlates events
           across different CAF services
       - $ref: '#/parameters/jobId'
     post:
@@ -294,7 +294,7 @@ paths:
         in: header
         type: string
         description: |
-          An identifier that correlates events 
+          An identifier that correlates events
           across different CAF services
       - $ref: '#/parameters/jobId'
     post:
@@ -390,7 +390,7 @@ definitions:
       delay:
         type: integer
         format: int32
-        default: 0		
+        default: 0
         description: The time in seconds after the prerequisite job identifiers have completed before this job is eligible for running.
       labels:
         type: object
