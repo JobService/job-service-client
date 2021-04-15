@@ -25,4 +25,5 @@ public final class JobStatusConstants
     public static final String PAUSED = "Paused";
     public static final String FAILED = "Failed";
     public static final String CANCELLED = "Cancelled";
+    public static final String EXPIRED = "Expired";
 }
