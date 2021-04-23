@@ -22,8 +22,8 @@ info:
     Allows background operations to be sent to the workers, and for the
     operations to be tracked and controlled.
 
-    You can check the progress of operations, and request to cancel, pause, or resume them.  *NB: Pause and Resume are future
-    requirements.*
+    You can check the progress of operations, and request to cancel, pause, or resume them.
+
     The primary use of this functionality is batch document
     processing.  The service can send work to the Batch Worker, and
     then track the progress of that work.
@@ -71,7 +71,7 @@ paths:
         in: query
         type: string
         required: false
-        description: All - no status filter is applied (Default); NotCompleted - only those results with statuses other than Completed will be returned; Completed - only those results with Completed status will be returned; Inactive - only those results with inactive statuses (i.e. Completed, Failed, Cancelled) will be returned; NotFinished - only those results with unfinished statuses (ie. Active, Paused, Waiting) will be returned.
+        description: All - no status filter is applied (Default); NotCompleted - only those results with statuses other than Completed will be returned; Completed - only those results with Completed status will be returned; Inactive - only those results with inactive statuses (i.e. Completed, Failed, Cancelled, Expired) will be returned; NotFinished - only those results with unfinished statuses (ie. Active, Paused, Waiting) will be returned.
         enum:
           - All
           - NotCompleted
@@ -120,6 +120,8 @@ paths:
             type: array
             items:
               $ref: "#/definitions/job"
+        503:
+          description: The request failed due to a database connection error.
   /partitions/{partitionId}/jobs/{jobId}:
     parameters:
       - $ref: '#/parameters/partitionId'
@@ -145,6 +147,8 @@ paths:
           description: The `jobId` parameter contains invalid characters.
         404:
           description: The specified job is not found.
+        503:
+          description: The request failed due to a database connection error.
     put:
       tags:
         - Jobs
@@ -167,6 +171,8 @@ paths:
           description: Indicates that the job was successfully updated.
         400:
           description: The `jobId` parameter contains invalid characters.
+        503:
+          description: The request failed due to a database connection error.
     delete:
       tags:
         - Jobs
@@ -180,6 +186,8 @@ paths:
           description: The `jobId` parameter contains invalid characters.
         404:
           description: The specified job is not found.
+        503:
+          description: The request failed due to a database connection error.
   /partitions/{partitionId}/jobs/{jobId}/isActive:
     parameters:
       - $ref: '#/parameters/partitionId'
@@ -203,10 +211,12 @@ paths:
             type: boolean
           headers:
             CacheableJobStatus:
-                description: A response that includes this header with the value ‘true’ is eligible for caching in a cache specific to job status responses.
-                type: boolean
+              description: A response that includes this header with the value ‘true’ is eligible for caching in a cache specific to job status responses.
+              type: boolean
         400:
           description: The `jobId` parameter contains invalid characters.
+        503:
+          description: The request failed due to a database connection error.
   /partitions/{partitionId}/jobs/{jobId}/status:
     parameters:
       - $ref: '#/parameters/partitionId'
@@ -230,8 +240,8 @@ paths:
             $ref: "#/definitions/job-status"
           headers:
             CacheableJobStatus:
-                description: A response that includes this header with the value ‘true’ is eligible for caching in a cache specific to job status responses.
-                type: boolean
+              description: A response that includes this header with the value ‘true’ is eligible for caching in a cache specific to job status responses.
+              type: boolean
         400:
           description: The `jobId` parameter contains invalid characters.
         404:
@@ -261,6 +271,8 @@ paths:
           description: The `jobId` parameter contains invalid characters.
         404:
           description: The specified job is not found.
+        503:
+          description: The request failed due to a database connection error.
   /partitions/{partitionId}/jobs/{jobId}/pause:
     parameters:
       - $ref: '#/parameters/partitionId'
@@ -353,6 +365,8 @@ paths:
           schema:
             type: integer
             format: int64
+        503:
+          description: The request failed due to a database connection error.
 definitions:
   newJob:
     type: object
@@ -409,11 +423,11 @@ definitions:
       "Active":
         $ref: "#/definitions/policy"
       "Completed":
-        $ref: "#/definitions/policy"
+        $ref: "#/definitions/deletePolicy"
       "Failed":
-        $ref: "#/definitions/policy"
+        $ref: "#/definitions/deletePolicy"
       "Cancelled":
-        $ref: "#/definitions/policy"
+        $ref: "#/definitions/deletePolicy"
       "Waiting":
         $ref: "#/definitions/policy"
       "Paused":
@@ -537,8 +551,8 @@ definitions:
       failureId:
         type: string
       failureTime:
-        type: integer
-        format: int64
+        type: string
+        format: date-time
       failureSource:
         type: string
       failureMessage:
