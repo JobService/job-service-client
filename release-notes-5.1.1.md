@@ -5,7 +5,7 @@ ${version-number}
 - None
 
 #### Bug Fixes
-- Dependency updates only in this release.
+- US749207: Update okio to address [CVE-2023-3636](https://nvd.nist.gov/vuln/detail/CVE-2023-3635).
 
 #### Known Issues
 - None
