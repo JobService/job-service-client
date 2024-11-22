@@ -28,7 +28,6 @@
     <name>job-service-client</name>
     <description>Client API allowing access to job operations in CAF Workers</description>
     <url>https://github.com/JobService/job-service-client</url>
-    
     <parent>
         <groupId>com.github.cafapi</groupId>
         <artifactId>swagger-restapi-client-base</artifactId>
@@ -84,11 +83,11 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>/com/hpe/caf/services/job/swagger.yaml</inputSpec>
+                            <inputSpec>/com/github/jobservice/contract/swagger.yaml</inputSpec>
                             <language>java</language>
-                            <modelPackage>com.hpe.caf.services.job.client.model</modelPackage>
-                            <apiPackage>com.hpe.caf.services.job.client.api</apiPackage>
-                            <invokerPackage>com.hpe.caf.services.job.client</invokerPackage>
+                            <modelPackage>com.github.jobservice.client.model</modelPackage>
+                            <apiPackage>com.github.jobservice.client.api</apiPackage>
+                            <invokerPackage>com.github.jobservice.client</invokerPackage>
                             <configOptions>
                                 <groupId>${project.groupId}</groupId>
                                 <artifactId>${project.artifactId}</artifactId>
