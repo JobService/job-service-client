@@ -28,7 +28,6 @@
     <name>job-service-client</name>
     <description>Client API allowing access to job operations in CAF Workers</description>
     <url>https://github.com/JobService/job-service-client</url>
-
     <parent>
         <groupId>com.github.cafapi</groupId>
         <artifactId>swagger-restapi-client-base</artifactId>
