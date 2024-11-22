@@ -30,9 +30,10 @@
     <url>https://github.com/JobService/job-service-client</url>
 
     <parent>
-        <groupId>com.github.jobservice</groupId>
-        <artifactId>job-service-client-aggregator</artifactId>
-        <version>5.2.0-SNAPSHOT</version>
+        <groupId>com.github.cafapi</groupId>
+        <artifactId>swagger-restapi-client-base</artifactId>
+        <version>1.14.0-1</version>
+        <relativePath/>
     </parent>
 
     <scm>
@@ -65,7 +66,7 @@
 
     <build>
         <plugins>
-<!--            <plugin>
+            <plugin>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
                 <version>${swagger-codegen-maven-plugin-version}</version>
@@ -93,43 +94,6 @@
                                 <artifactId>${project.artifactId}</artifactId>
                                 <artifactVersion>${project.version}</artifactVersion>
                             </configOptions>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>-->
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>7.2.0</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.github.jobservice</groupId>
-                        <artifactId>job-service-contract</artifactId>
-                        <version>${swagger-contract-version}</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>generate-java-client-code</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <generatorName>java</generatorName>
-                            <inputSpec>/com/github/jobservice/contract/swagger.yaml</inputSpec>
-                            <modelPackage>com.github.jobservice.client.model</modelPackage>
-                            <apiPackage>com.github.jobservice.client.api</apiPackage>
-                            <invokerPackage>com.github.jobservice.client</invokerPackage>
-                            <configOptions>
-                                <groupId>${project.groupId}</groupId>
-                                <artifactId>${project.artifactId}</artifactId>
-                                <artifactVersion>${project.version}</artifactVersion>
-                            </configOptions>
-                            <generateModelTests>false</generateModelTests>
-                            <generateModelDocumentation>false</generateModelDocumentation>
-                            <generateApiTests>false</generateApiTests>
-                            <generateApiDocumentation>false</generateApiDocumentation>
-                            <addCompileSourceRoot>false</addCompileSourceRoot>
                         </configuration>
                     </execution>
                 </executions>
