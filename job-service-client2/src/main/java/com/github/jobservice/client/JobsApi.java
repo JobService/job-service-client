@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hpe.caf.services.job.client;
+package com.github.jobservice.client;
 
-public class JobsApi extends com.hpe.caf.services.job.client.api.JobsApi
+public class JobsApi extends com.github.jobservice.client.api.JobsApi
 {
     public JobsApi()
     {

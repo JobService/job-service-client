@@ -28,12 +28,11 @@
     <name>job-service-client</name>
     <description>Client API allowing access to job operations in CAF Workers</description>
     <url>https://github.com/JobService/job-service-client</url>
-    
+
     <parent>
-        <groupId>com.github.cafapi</groupId>
-        <artifactId>swagger-restapi-client-base</artifactId>
-        <version>1.14.0-1</version>
-        <relativePath/>
+        <groupId>com.github.jobservice</groupId>
+        <artifactId>job-service-client-aggregator</artifactId>
+        <version>5.2.0-SNAPSHOT</version>
     </parent>
 
     <scm>
@@ -66,7 +65,7 @@
 
     <build>
         <plugins>
-            <plugin>
+<!--            <plugin>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
                 <version>${swagger-codegen-maven-plugin-version}</version>
@@ -84,16 +83,53 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>/com/hpe/caf/services/job/swagger.yaml</inputSpec>
+                            <inputSpec>/com/github/jobservice/contract/swagger.yaml</inputSpec>
                             <language>java</language>
-                            <modelPackage>com.hpe.caf.services.job.client.model</modelPackage>
-                            <apiPackage>com.hpe.caf.services.job.client.api</apiPackage>
-                            <invokerPackage>com.hpe.caf.services.job.client</invokerPackage>
+                            <modelPackage>com.github.jobservice.client.model</modelPackage>
+                            <apiPackage>com.github.jobservice.client.api</apiPackage>
+                            <invokerPackage>com.github.jobservice.client</invokerPackage>
                             <configOptions>
                                 <groupId>${project.groupId}</groupId>
                                 <artifactId>${project.artifactId}</artifactId>
                                 <artifactVersion>${project.version}</artifactVersion>
                             </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>7.2.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.github.jobservice</groupId>
+                        <artifactId>job-service-contract</artifactId>
+                        <version>${swagger-contract-version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>generate-java-client-code</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <generatorName>java</generatorName>
+                            <inputSpec>/com/github/jobservice/contract/swagger.yaml</inputSpec>
+                            <modelPackage>com.github.jobservice.client.model</modelPackage>
+                            <apiPackage>com.github.jobservice.client.api</apiPackage>
+                            <invokerPackage>com.github.jobservice.client</invokerPackage>
+                            <configOptions>
+                                <groupId>${project.groupId}</groupId>
+                                <artifactId>${project.artifactId}</artifactId>
+                                <artifactVersion>${project.version}</artifactVersion>
+                            </configOptions>
+                            <generateModelTests>false</generateModelTests>
+                            <generateModelDocumentation>false</generateModelDocumentation>
+                            <generateApiTests>false</generateApiTests>
+                            <generateApiDocumentation>false</generateApiDocumentation>
+                            <addCompileSourceRoot>false</addCompileSourceRoot>
                         </configuration>
                     </execution>
                 </executions>

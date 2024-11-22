@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hpe.caf.services.job.status;
+package com.github.jobservice.status;
 
 public final class JobStatusConstants
 {
