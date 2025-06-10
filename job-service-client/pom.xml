@@ -49,7 +49,6 @@
     </organization>
 
     <properties>
-        <copyrightYear>2024</copyrightYear>
         <copyrightNotice>Copyright ${project.inceptionYear}-${copyrightYear} Open Text.</copyrightNotice>
         <swagger-contract-version>${project.version}</swagger-contract-version>
     </properties>
