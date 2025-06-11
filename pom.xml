@@ -28,7 +28,7 @@
     <groupId>com.github.jobservice</groupId>
     <artifactId>job-service-client-aggregator</artifactId>
     <packaging>pom</packaging>
-    <version>5.2.0-SNAPSHOT</version>
+    <version>5.3.0-SNAPSHOT</version>
     <modules>
         <module>job-service-contract</module>
         <module>job-service-client</module>
