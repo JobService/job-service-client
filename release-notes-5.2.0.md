@@ -1,8 +1,8 @@
-!not-ready-for-release!
-
 #### Version Number
 ${version-number}
 
 #### New Features
+- None
 
-#### Known Issues
+#### Bug Fixes
+- US1029209: Prep for uploading to new central sonatype repository.
