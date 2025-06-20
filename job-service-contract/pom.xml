@@ -27,6 +27,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>job-service-contract</artifactId>
+    <name>job-service-contract</name>
 
     <properties>
         <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
